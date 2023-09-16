@@ -1,0 +1,36 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Tomate",
+      "categoria": "Horti-Fruti",
+      "descricao": "Tomate Cereja",
+      "preco": "5.00",
+      "quantidade": "150"
+    },
+    {
+      "id": 2,
+      "nome": "Banana",
+      "categoria": "Fruta",
+      "descricao": "Prata",
+      "preco": "5",
+      "quantidade": "250"
+    },
+    {
+      "id": 3,
+      "nome": "Abacate",
+      "categoria": "Fruta",
+      "descricao": "N / A",
+      "preco": "7",
+      "quantidade": "25"
+    },
+    {
+      "id": 4,
+      "nome": "Arroz",
+      "categoria": "Cereais",
+      "descricao": "Arroz Tipo 1",
+      "preco": "7",
+      "quantidade": "580"
+    }
+  ]
+}

@@ -1,20 +1,58 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Supermercado</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <h1>Lista de Produtos</h1>
+    <table border="1" style="width: 100%">
+      <tr>
+        <ion-item>
+          | ID  
+          | Nome    
+          | Categoria   
+          | Descrição   
+          | Preço
+          | Quantidade |
+        </ion-item>
+      </tr>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <tr>
+        <ion-item *ngFor="let produto of produtos">
+          | {{ produto.id }}  
+          | {{ produto.nome }} 
+          | {{ produto.categoria }}
+          | {{ produto.descricao }} 
+          | R$ {{ produto.preco }} 
+          | {{ produto.quantidade }} |
+          
+          <ion-button (click)="iniciarEdicao(produto)">Editar</ion-button>
+          <ion-button (click)="excluirProduto(produto.id)">Excluir</ion-button>
+        </ion-item>
+      </tr>
+    </table>
+  </ion-list>
+
+  <ion-item>
+    <ion-input [(ngModel)]="novoProduto.nome" placeholder="Nome"></ion-input>
+    <ion-input [(ngModel)]="novoProduto.categoria" placeholder="Categoria"></ion-input>
+    <ion-input [(ngModel)]="novoProduto.descricao" placeholder="Descrição"></ion-input>
+    <ion-input [(ngModel)]="novoProduto.preco" placeholder="Preço"></ion-input>
+    <ion-input [(ngModel)]="novoProduto.quantidade" placeholder="Quantidade"></ion-input>
+  
+    <ion-button (click)="adicionarProduto()">Adicionar</ion-button>
+  </ion-item>
+
+  <ion-item *ngIf="produtoEditando">
+    <ion-input [(ngModel)]="produtoEditando.nome" placeholder="Nome"></ion-input>
+    <ion-input [(ngModel)]="produtoEditando.categoria" placeholder="Categoria"></ion-input>
+    <ion-input [(ngModel)]="produtoEditando.descricao" placeholder="Descrição"></ion-input>
+    <ion-input [(ngModel)]="produtoEditando.preco" placeholder="Preço"></ion-input>
+    <ion-input [(ngModel)]="produtoEditando.quantidade" placeholder="Quantidade"></ion-input>
+    
+    <ion-button (click)="editarProduto(produtoEditando)">Salvar</ion-button>
+    <ion-button (click)="cancelarEdicao()">Cancelar</ion-button>
+  </ion-item>
 </ion-content>
